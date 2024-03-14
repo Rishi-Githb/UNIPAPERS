@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using UNIPAPERS.Models;
@@ -12,7 +13,7 @@ namespace UNIPAPERS.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
             return View();

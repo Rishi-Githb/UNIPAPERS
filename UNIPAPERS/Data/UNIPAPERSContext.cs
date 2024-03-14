@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UNIPAPERS.Models;
 
 namespace UNIPAPERS.Data
 {
-    public class UNIPAPERSContext : DbContext
+    public class UNIPAPERSContext : IdentityDbContext
     {
         public UNIPAPERSContext (DbContextOptions<UNIPAPERSContext> options)
             : base(options)
@@ -15,5 +16,6 @@ namespace UNIPAPERS.Data
         }
 
         public DbSet<UNIPAPERS.Models.Paper> Paper { get; set; } = default!;
+        public DbSet<UNIPapers.Models.Customer> Customer { get; set; }
     }
 }
