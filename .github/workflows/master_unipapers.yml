@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - unipapers
+name: Build and deploy ASP.Net Core app to Azure Web App - UNIPAPERS
 
 on:
   push:
@@ -52,15 +52,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_98D89F069F9C446D81CCEDDBAEAF3917 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F8E026BDC5D84B14845CE09C85F0DB66 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2275F24762C34C779297E8FC6804B8EE }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9AC7497E28694E0F8838D54490A07842 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_47051FD1A4884530B03148037050F99B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_44345D19DBF8440BA593D881B817E3AC }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'unipapers'
+          app-name: 'UNIPAPERS'
           slot-name: 'Production'
           package: .
           
