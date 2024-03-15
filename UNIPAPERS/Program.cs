@@ -7,7 +7,7 @@ using UNIPapers.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UNIPAPERSContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING") ?? throw new InvalidOperationException("Connection string 'UNIPAPERSContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("UNIPAPERSContext") ?? throw new InvalidOperationException("Connection string 'UNIPAPERSContext' not found.")));
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<UNIPAPERSContext>();
