@@ -137,10 +137,20 @@ I created Azure account, and get $135 credit. Also, I taught my team members.
 Rishi:
 
 I successfully complete Aunthecation followed by steps.
+
 I have created database then server then web app in azure and linked my github account.......published to azure ......but I faced difficulty to publish...my project version is not supported coz I downloaded preview version.... Installed community version...and again did the project ...then tried to deploy ......successfully published.                
 
-20240313.1434
+202-403-13.
+1434
 Tried authentication......and successfully finished..............           
 
-20240313.2324.
+2024-03-13.
+2324.
 Started authentication....ended up with lot of error...solved successfully...finally I got admin( where admin can edit delete papers) and user account ( view only)..........Now tried to open the published link ..but got an http error....tried a alot to solve this...again started new app service in azure and tried... successfully deployed.  
+
+Login:
+Admin Id: Papers@gmail.com
+Password: Papers@123
+
+Guest Id: pipapers@gmail.com
+Password: Papers@123
