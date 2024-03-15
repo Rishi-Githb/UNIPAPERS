@@ -154,3 +154,5 @@ Password: Papers@123
 
 Guest Id: pipapers@gmail.com
 Password: Papers@123
+
+The Deployemnet was successfull before the Authentication and Authorization but after finishing it the deployement went again to 500.30 error. Tried a lot for many days with different type of deployement methods even though its an error........
