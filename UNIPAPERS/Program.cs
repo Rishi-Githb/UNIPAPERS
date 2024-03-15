@@ -7,10 +7,12 @@ using UNIπPapers.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UNIPAPERSContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("UNIPAPERSContext") ?? throw new InvalidOperationException("Connection string 'UNIPAPERSContext' not found.")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<UNIPAPERSContext>();
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING") ?? throw new InvalidOperationException("Connection string 'UNIPAPERSContext' not found.")));
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
+options.InstanceName = "SampleInstance";
+});
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<UNIPAPERSContext>(options =>
