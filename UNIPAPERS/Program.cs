@@ -4,6 +4,7 @@ using UNIPAPERS.Data;
 using UNIPAPERS.Models;
 using Microsoft.Extensions.DependencyInjection;
 using UNIPapers.Models;
+using UNIπPapers.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UNIPAPERSContext>(options =>
@@ -25,7 +26,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    //SeedData.Initialize(services);
+    SeedData.Initialize(services);
 }
 
 // Configure the HTTP request pipeline.
@@ -52,34 +53,34 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-//using (var scope = app.Services.CreateScope())
-//{
-    //var rolemanager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+using (var scope = app.Services.CreateScope())
+{
+    var rolemanager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-    //var roles = new[] { "Admin", "User" };
+    var roles = new[] { "Admin", "User" };
 
-    //foreach (var role in roles)
-    //{
-        //await rolemanager.CreateAsync(new IdentityRole(role));
-    ///}
-//}
-//using (var scope = app.Services.CreateScope())
-//{
-    //var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    foreach (var role in roles)
+    {
+        await rolemanager.CreateAsync(new IdentityRole(role));
+    }
+}
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-    //string email = "Papers@gmail.com";
-    //string password = "Papers@123";
+    string email = "Papers@gmail.com";
+    string password = "Papers@123";
 
-    //var adminUser = new IdentityUser
-    //{
-        //Email = email,
-        //UserName = email,
-        //EmailConfirmed = true,
-    //};
+    var adminUser = new IdentityUser
+    {
+        Email = email,
+        UserName = email,
+        EmailConfirmed = true,
+    };
 
-    //await userManager.CreateAsync(adminUser, password);
+    await userManager.CreateAsync(adminUser, password);
 
-    //await userManager.AddToRoleAsync(adminUser, "Admin");
-//}
+    await userManager.AddToRoleAsync(adminUser, "Admin");
+}
 
 app.Run();
