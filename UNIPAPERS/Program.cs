@@ -3,20 +3,24 @@ using Microsoft.EntityFrameworkCore;
 using UNIPAPERS.Data;
 using UNIPAPERS.Models;
 using Microsoft.Extensions.DependencyInjection;
-using UNIPapers.Models;
 using UNIπPapers.Models;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UNIPAPERSContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UNIPAPERSContext") ?? throw new InvalidOperationException("Connection string 'UNIPAPERSContext' not found.")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<UNIPAPERSContext>();
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<UNIPAPERSContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<UNIPAPERSContext>();
+
 
 builder.Services.AddControllersWithViews();
 
