@@ -12,8 +12,8 @@ using UNIPAPERS.Data;
 namespace UNIPAPERS.Migrations
 {
     [DbContext(typeof(UNIPAPERSContext))]
-    [Migration("20240314172830_CreateCustomer")]
-    partial class CreateCustomer
+    [Migration("20240321161837_CreateIdentity")]
+    partial class CreateIdentity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
