@@ -73,7 +73,7 @@ namespace UNIπPapers.Controllers
         }
 
         // GET: Papers/Create
-        [Authorize]
+        
         public IActionResult Create()
         {
             return View();
@@ -96,7 +96,7 @@ namespace UNIπPapers.Controllers
         }
 
         // GET: Papers/Edit/5
-        [Authorize]
+        
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -148,7 +148,7 @@ namespace UNIπPapers.Controllers
         }
 
         // GET: Papers/Delete/5
-        [Authorize]
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
